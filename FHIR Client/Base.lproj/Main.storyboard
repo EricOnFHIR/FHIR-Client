@@ -445,17 +445,17 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="FHIR_Client" customModuleProvider="target" sceneMemberID="viewController">
                     <stackView key="view" distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="2BC-VW-IqM">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="640"/>
                         <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsS-Tg-fde" userLabel="Logging Scroll View">
-                                <rect key="frame" x="105" y="106" width="240" height="420"/>
+                                <rect key="frame" x="105" y="106" width="240" height="524"/>
                                 <clipView key="contentView" id="Bhu-3u-KaL">
-                                    <rect key="frame" x="1" y="0.0" width="238" height="419"/>
+                                    <rect key="frame" x="1" y="0.0" width="238" height="523"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="xKr-92-Jwq" viewBased="YES" id="c1Z-vf-jeK">
-                                            <rect key="frame" x="0.0" y="0.0" width="238" height="396"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="238" height="500"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>

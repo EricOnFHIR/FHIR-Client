@@ -10,6 +10,8 @@
 		0741E53F21C5ED82000AFA29 /* FHIRWorkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0741E53E21C5ED82000AFA29 /* FHIRWorkCoordinator.swift */; };
 		0741E54121C6ADCA000AFA29 /* FHIRWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0741E54021C6ADCA000AFA29 /* FHIRWorker.swift */; };
 		0741E54321C85B10000AFA29 /* CompletionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0741E54221C85B10000AFA29 /* CompletionDelegate.swift */; };
+		07B9C0BB21DFE77E0055054F /* TimeThreadCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07B9C0BA21DFE77E0055054F /* TimeThreadCellView.xib */; };
+		07B9C0BD21DFE9B70055054F /* TimeThreadCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B9C0BC21DFE9B70055054F /* TimeThreadCellView.swift */; };
 		07F3AA7921ACE91600672515 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F3AA7821ACE91600672515 /* AppDelegate.swift */; };
 		07F3AA7B21ACE91600672515 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F3AA7A21ACE91600672515 /* ViewController.swift */; };
 		07F3AA7D21ACE91700672515 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F3AA7C21ACE91700672515 /* Assets.xcassets */; };
@@ -23,6 +25,8 @@
 		0741E53E21C5ED82000AFA29 /* FHIRWorkCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FHIRWorkCoordinator.swift; sourceTree = "<group>"; };
 		0741E54021C6ADCA000AFA29 /* FHIRWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FHIRWorker.swift; sourceTree = "<group>"; };
 		0741E54221C85B10000AFA29 /* CompletionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionDelegate.swift; sourceTree = "<group>"; };
+		07B9C0BA21DFE77E0055054F /* TimeThreadCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeThreadCellView.xib; sourceTree = "<group>"; };
+		07B9C0BC21DFE9B70055054F /* TimeThreadCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeThreadCellView.swift; sourceTree = "<group>"; };
 		07F3AA7521ACE91600672515 /* FHIR Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FHIR Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F3AA7821ACE91600672515 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07F3AA7A21ACE91600672515 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +51,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07B9C0B921DFE73C0055054F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				07B9C0BA21DFE77E0055054F /* TimeThreadCellView.xib */,
+				07B9C0BC21DFE9B70055054F /* TimeThreadCellView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		07F3AA6C21ACE91600672515 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +79,7 @@
 		07F3AA7721ACE91600672515 /* FHIR Client */ = {
 			isa = PBXGroup;
 			children = (
+				07B9C0B921DFE73C0055054F /* UI */,
 				07F3AA8921ADB82100672515 /* Processing */,
 				07F3AA8821ADB2AD00672515 /* FHIR Client.entitlements */,
 				07F3AA7821ACE91600672515 /* AppDelegate.swift */,
@@ -154,6 +168,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07B9C0BB21DFE77E0055054F /* TimeThreadCellView.xib in Resources */,
 				07F3AA7D21ACE91700672515 /* Assets.xcassets in Resources */,
 				07F3AA8021ACE91700672515 /* Main.storyboard in Resources */,
 			);
@@ -174,6 +189,7 @@
 				07F3AA8B21ADB91100672515 /* QueryRequest.swift in Sources */,
 				07F3AA7B21ACE91600672515 /* ViewController.swift in Sources */,
 				07F3AA7921ACE91600672515 /* AppDelegate.swift in Sources */,
+				07B9C0BD21DFE9B70055054F /* TimeThreadCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
