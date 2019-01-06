@@ -34,18 +34,14 @@ class ViewController: NSViewController, CompletionDelegate {
     
     let numberOfAttempts = NumberOfAttempts.integerValue
     print("Requested Attempts: \(numberOfAttempts)")
-    var startedWorking = false
-    while !startedWorking {
-      startedWorking = doTheWork(value: numberOfAttempts)
+    for _ in 1...numberOfAttempts {
+      doTheWork()
     }
     
   }
   
-  func doTheWork(value: Int) -> Bool {
-
+  func doTheWork() {
     workCoordinator!.doWork(endPoint: "http://localhost:4343/FHIRServer/Patient/3341/Allergy?_include=AllergyIntolerance:patient")
-    
-    return true
   }
   
   func responseReceived(worker: QueryWorker, response: HTTPURLResponse, data: String) {
@@ -95,8 +91,6 @@ extension ViewController: NSTableViewDelegate {
       if let messageCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TimeThreadCell"), owner: nil) as? TimeThreadCellView {
         messageCell.ThreadLabel.stringValue = loggingTimeThreads[row].Thread
         messageCell.TimeLabel.stringValue = loggingTimeThreads[row].getTime()
-        print("Time Label Frame: \(messageCell.TimeLabel.frame)")
-        print("Thread Label Frame: \(messageCell.ThreadLabel.frame)")
         cell = messageCell
       }
       else {
