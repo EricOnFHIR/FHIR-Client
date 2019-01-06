@@ -476,20 +476,24 @@
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="TimeThreadCell" id="QtR-Tu-t38" customClass="TimeThreadCellView" customModule="FHIR_Client" customModuleProvider="target">
                                                             <rect key="frame" x="1" y="1" width="120" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                             <subviews>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JYA-UT-DWS" userLabel="Time">
-                                                                    <rect key="frame" x="3" y="24" width="90" height="11"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JYA-UT-DWS" userLabel="Time">
+                                                                    <rect key="frame" x="3" y="24" width="50" height="11"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="11" id="yMa-pA-ii0"/>
+                                                                    </constraints>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="TimeLabel" id="dj3-If-PS6">
                                                                         <font key="font" metaFont="system" size="9"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FNw-yW-4p8" userLabel="Thread">
-                                                                    <rect key="frame" x="3" y="9" width="99" height="11"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FNw-yW-4p8" userLabel="Thread">
+                                                                    <rect key="frame" x="3" y="8" width="59" height="11"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="11" id="CLb-qm-v1N"/>
+                                                                    </constraints>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="ThreadLabel" id="Tmk-Z1-D2p">
                                                                         <font key="font" metaFont="system" size="9"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -497,6 +501,15 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="JYA-UT-DWS" firstAttribute="top" secondItem="QtR-Tu-t38" secondAttribute="top" constant="5" id="6Bu-Nj-BbO"/>
+                                                                <constraint firstItem="FNw-yW-4p8" firstAttribute="leading" secondItem="QtR-Tu-t38" secondAttribute="leading" constant="5" id="7RP-EO-V5s"/>
+                                                                <constraint firstItem="FNw-yW-4p8" firstAttribute="top" secondItem="JYA-UT-DWS" secondAttribute="bottom" constant="5" id="JU0-1J-i60"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JYA-UT-DWS" secondAttribute="trailing" constant="20" symbolic="YES" id="JsS-TZ-GFZ"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FNw-yW-4p8" secondAttribute="trailing" constant="20" symbolic="YES" id="Rna-C2-0Kq"/>
+                                                                <constraint firstItem="JYA-UT-DWS" firstAttribute="leading" secondItem="QtR-Tu-t38" secondAttribute="leading" constant="5" id="SBe-Rl-dre"/>
+                                                                <constraint firstItem="FNw-yW-4p8" firstAttribute="top" secondItem="JYA-UT-DWS" secondAttribute="bottom" constant="5" id="j6u-2l-nOF"/>
+                                                            </constraints>
                                                             <connections>
                                                                 <outlet property="ThreadLabel" destination="FNw-yW-4p8" id="5PF-zK-DPS"/>
                                                                 <outlet property="TimeLabel" destination="JYA-UT-DWS" id="st4-fq-Fb5"/>
@@ -518,21 +531,26 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="MessageCell" id="2zh-nH-RAt">
-                                                            <rect key="frame" x="124" y="1" width="222" height="17"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <rect key="frame" x="124" y="1" width="222" height="40"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U84-jo-YmP">
-                                                                    <rect key="frame" x="3" y="5" width="80" height="11"/>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="U84-jo-YmP" userLabel="Message">
+                                                                    <rect key="frame" x="3" y="24" width="67" height="11"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="17" id="Mad-Gt-qEr"/>
+                                                                        <constraint firstAttribute="height" constant="11" id="SrX-yk-y2m"/>
                                                                     </constraints>
-                                                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Table View Cell" id="o6D-YM-Fgv">
+                                                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="MessageLabel" id="o6D-YM-Fgv">
                                                                         <font key="font" metaFont="miniSystem"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="U84-jo-YmP" firstAttribute="top" secondItem="2zh-nH-RAt" secondAttribute="top" constant="5" id="1fo-jM-Pm3"/>
+                                                                <constraint firstItem="U84-jo-YmP" firstAttribute="leading" secondItem="2zh-nH-RAt" secondAttribute="leading" constant="5" id="2ku-cr-0Ea"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="U84-jo-YmP" secondAttribute="trailing" constant="20" symbolic="YES" id="z4J-kj-Z8t"/>
+                                                            </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="U84-jo-YmP" id="ZSS-2F-5uW"/>
                                                             </connections>
