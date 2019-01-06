@@ -87,27 +87,37 @@ extension ViewController:NSTableViewDataSource {
 extension ViewController: NSTableViewDelegate {
 
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-    var text : String
+    var cell : NSView?
     
     let column = tableColumn?.identifier.rawValue
     switch column {
     case "TimeThread":
-      text = "\(loggingTimeThreads[row].getTime()) \n \(loggingTimeThreads[row].Thread)"
+      if let messageCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TimeThreadCell"), owner: nil) as? TimeThreadCellView {
+        messageCell.ThreadLabel.stringValue = loggingTimeThreads[row].Thread
+        messageCell.TimeLabel.stringValue = loggingTimeThreads[row].getTime()
+        print("Time Label Frame: \(messageCell.TimeLabel.frame)")
+        print("Thread Label Frame: \(messageCell.ThreadLabel.frame)")
+        cell = messageCell
+      }
+      else {
+        cell = nil
+      }
       break
     case "Message":
-      text = loggingMessages[row]
+      if let messageCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MessageCell"), owner: nil) as? NSTableCellView {
+        messageCell.textField?.stringValue = loggingMessages[row]
+        cell = messageCell
+      }
+      else {
+        cell = nil
+      }
       break
     default:
-      text = "Column Name Error"
+      cell = nil
+      break;
     }
-    let cellIdentifier = column!
-    
-    // 3
-    if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
-      cell.textField?.stringValue = text
-      return cell
-    }
-    return nil
+
+    return cell
   }
   
 }
