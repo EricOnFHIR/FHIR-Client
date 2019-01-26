@@ -445,101 +445,113 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="FHIR_Client" customModuleProvider="target" sceneMemberID="viewController">
                     <stackView key="view" distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="2BC-VW-IqM" userLabel="Vertical Stack View">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="640"/>
+                        <rect key="frame" x="0.0" y="0.0" width="422" height="619"/>
                         <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                         <subviews>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="42" horizontalPageScroll="10" verticalLineScroll="42" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsS-Tg-fde" userLabel="Logging Scroll View">
-                                <rect key="frame" x="50" y="106" width="350" height="524"/>
-                                <clipView key="contentView" id="Bhu-3u-KaL">
-                                    <rect key="frame" x="1" y="0.0" width="348" height="523"/>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="102" horizontalPageScroll="10" verticalLineScroll="102" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Bk-bi-Fkn" userLabel="Logging Outline View">
+                                <rect key="frame" x="5" y="224" width="412" height="385"/>
+                                <clipView key="contentView" id="2cc-cW-jqy">
+                                    <rect key="frame" x="1" y="0.0" width="410" height="384"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="40" rowSizeStyle="automatic" headerView="xKr-92-Jwq" viewBased="YES" id="c1Z-vf-jeK">
-                                            <rect key="frame" x="0.0" y="0.0" width="348" height="500"/>
+                                        <outlineView identifier="LoggingOutline" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="100" rowSizeStyle="automatic" headerView="8Hy-Ls-UQE" viewBased="YES" indentationPerLevel="2" outlineTableColumn="KfF-Vx-0hA" id="M30-wn-vSp">
+                                            <rect key="frame" x="0.0" y="0.0" width="444" height="359"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="TimeThread" width="120" minWidth="120" maxWidth="160" id="VC0-rt-OLS">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Time/Thread">
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="lSV-TL-PTq">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
-                                                    <prototypeCellViews>
-                                                        <tableCellView identifier="TimeThreadCell" id="QtR-Tu-t38" customClass="TimeThreadCellView" customModule="FHIR_Client" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="1" width="120" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                                            <subviews>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JYA-UT-DWS" userLabel="Time">
-                                                                    <rect key="frame" x="3" y="24" width="50" height="11"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="11" id="yMa-pA-ii0"/>
-                                                                    </constraints>
-                                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="TimeLabel" id="dj3-If-PS6">
-                                                                        <font key="font" metaFont="system" size="9"/>
-                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                    </textFieldCell>
-                                                                </textField>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FNw-yW-4p8" userLabel="Thread">
-                                                                    <rect key="frame" x="3" y="8" width="59" height="11"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="11" id="CLb-qm-v1N"/>
-                                                                    </constraints>
-                                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="ThreadLabel" id="Tmk-Z1-D2p">
-                                                                        <font key="font" metaFont="system" size="9"/>
-                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                    </textFieldCell>
-                                                                </textField>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="JYA-UT-DWS" firstAttribute="top" secondItem="QtR-Tu-t38" secondAttribute="top" constant="5" id="6Bu-Nj-BbO"/>
-                                                                <constraint firstItem="FNw-yW-4p8" firstAttribute="leading" secondItem="QtR-Tu-t38" secondAttribute="leading" constant="5" id="7RP-EO-V5s"/>
-                                                                <constraint firstItem="FNw-yW-4p8" firstAttribute="top" secondItem="JYA-UT-DWS" secondAttribute="bottom" constant="5" id="JU0-1J-i60"/>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JYA-UT-DWS" secondAttribute="trailing" constant="20" symbolic="YES" id="JsS-TZ-GFZ"/>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FNw-yW-4p8" secondAttribute="trailing" constant="20" symbolic="YES" id="Rna-C2-0Kq"/>
-                                                                <constraint firstItem="JYA-UT-DWS" firstAttribute="leading" secondItem="QtR-Tu-t38" secondAttribute="leading" constant="5" id="SBe-Rl-dre"/>
-                                                                <constraint firstItem="FNw-yW-4p8" firstAttribute="top" secondItem="JYA-UT-DWS" secondAttribute="bottom" constant="5" id="j6u-2l-nOF"/>
-                                                            </constraints>
-                                                            <connections>
-                                                                <outlet property="ThreadLabel" destination="FNw-yW-4p8" id="5PF-zK-DPS"/>
-                                                                <outlet property="TimeLabel" destination="JYA-UT-DWS" id="st4-fq-Fb5"/>
-                                                            </connections>
-                                                        </tableCellView>
-                                                    </prototypeCellViews>
-                                                </tableColumn>
-                                                <tableColumn identifier="Message" width="222" minWidth="40" maxWidth="1000" id="Rpt-7I-hPC">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Message">
+                                                <tableColumn identifier="TimeThreadOutlineColumn" width="150" minWidth="100" maxWidth="200" id="KfF-Vx-0hA">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Time/Thread">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="Obw-KT-iBK">
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="vVQ-Mb-gNz">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="MessageCell" id="2zh-nH-RAt">
-                                                            <rect key="frame" x="124" y="1" width="222" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                        <tableCellView identifier="TimeThreadOutlineCell" id="Flq-4E-qAO" customClass="TimeThreadCellView" customModule="FHIR_Client" customModuleProvider="target">
+                                                            <rect key="frame" x="1" y="1" width="150" height="40"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="U84-jo-YmP" userLabel="Message">
-                                                                    <rect key="frame" x="3" y="24" width="67" height="11"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="11" id="SrX-yk-y2m"/>
-                                                                    </constraints>
-                                                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="MessageLabel" id="o6D-YM-Fgv">
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f4R-my-4sh" userLabel="Time">
+                                                                    <rect key="frame" x="3" y="26" width="50" height="11"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="TimeLabel" id="BQ7-38-Iau" userLabel="TimeLabel">
+                                                                        <font key="font" metaFont="miniSystem"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Tli-7K-vRW" userLabel="Thread">
+                                                                    <rect key="frame" x="3" y="13" width="59" height="11"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="ThreadLabel" id="zAJ-2h-pJG" userLabel="ThreadLabel">
+                                                                        <font key="font" metaFont="miniSystem"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Tli-7K-vRW" secondAttribute="trailing" constant="20" symbolic="YES" id="5DW-U9-Paq"/>
+                                                                <constraint firstItem="Tli-7K-vRW" firstAttribute="top" secondItem="f4R-my-4sh" secondAttribute="bottom" constant="2" id="KcF-tc-ho2"/>
+                                                                <constraint firstItem="f4R-my-4sh" firstAttribute="leading" secondItem="Flq-4E-qAO" secondAttribute="leading" constant="5" id="Lu5-d4-uZL"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="f4R-my-4sh" secondAttribute="trailing" constant="20" symbolic="YES" id="RA4-uJ-SZ3"/>
+                                                                <constraint firstItem="f4R-my-4sh" firstAttribute="top" secondItem="Flq-4E-qAO" secondAttribute="top" constant="3" id="WHC-UN-Vsx"/>
+                                                                <constraint firstItem="Tli-7K-vRW" firstAttribute="leading" secondItem="Flq-4E-qAO" secondAttribute="leading" constant="5" id="hfk-Yj-Auk"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="ThreadLabel" destination="Tli-7K-vRW" id="fHi-AT-AMI"/>
+                                                                <outlet property="TimeLabel" destination="f4R-my-4sh" id="tj7-Ea-eXj"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                        <tableCellView identifier="MessageItemOutlineCell" id="2bq-Kq-pkJ" userLabel="Item Cell View">
+                                                            <rect key="frame" x="1" y="43" width="150" height="100"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="r8n-b5-nl3">
+                                                                    <rect key="frame" x="0.0" y="86" width="150" height="14"/>
+                                                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="MessageLabel" id="kHx-zi-cyb">
+                                                                        <font key="font" size="10" name="Menlo-Regular"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="r8n-b5-nl3" firstAttribute="leading" secondItem="2bq-Kq-pkJ" secondAttribute="leading" constant="2" id="6Yq-eY-oOW"/>
+                                                                <constraint firstItem="r8n-b5-nl3" firstAttribute="top" secondItem="2bq-Kq-pkJ" secondAttribute="top" id="cmF-Np-kh1"/>
+                                                                <constraint firstItem="r8n-b5-nl3" firstAttribute="centerX" secondItem="2bq-Kq-pkJ" secondAttribute="centerX" id="zLh-kh-ep3"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="textField" destination="r8n-b5-nl3" id="QY3-In-5dt"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn identifier="MessageOutlineColumn" width="288" minWidth="40" maxWidth="1000" id="Dyh-8q-rw2" userLabel="Message Cell">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Message">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="kSO-UD-5iy">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView identifier="MessageOutlineCell" id="qbV-50-uOI" userLabel="Response Cell View">
+                                                            <rect key="frame" x="154" y="1" width="288" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="GZH-uC-gNL" userLabel="Response">
+                                                                    <rect key="frame" x="0.0" y="6" width="288" height="11"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Response" id="y3r-Oa-9hO" userLabel="ReponseLabel">
                                                                         <font key="font" metaFont="miniSystem"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -547,35 +559,56 @@
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="U84-jo-YmP" firstAttribute="top" secondItem="2zh-nH-RAt" secondAttribute="top" constant="5" id="1fo-jM-Pm3"/>
-                                                                <constraint firstItem="U84-jo-YmP" firstAttribute="leading" secondItem="2zh-nH-RAt" secondAttribute="leading" constant="5" id="2ku-cr-0Ea"/>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="U84-jo-YmP" secondAttribute="trailing" constant="20" symbolic="YES" id="z4J-kj-Z8t"/>
+                                                                <constraint firstItem="GZH-uC-gNL" firstAttribute="leading" secondItem="qbV-50-uOI" secondAttribute="leading" constant="2" id="801-OJ-87O"/>
+                                                                <constraint firstItem="GZH-uC-gNL" firstAttribute="top" secondItem="qbV-50-uOI" secondAttribute="top" id="lFG-gd-xhk"/>
+                                                                <constraint firstItem="GZH-uC-gNL" firstAttribute="centerX" secondItem="qbV-50-uOI" secondAttribute="centerX" id="yrR-Kv-Nd8"/>
                                                             </constraints>
                                                             <connections>
-                                                                <outlet property="textField" destination="U84-jo-YmP" id="ZSS-2F-5uW"/>
+                                                                <outlet property="textField" destination="GZH-uC-gNL" id="VFM-5E-Aa2"/>
                                                             </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
-                                        </tableView>
+                                        </outlineView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="q4s-kF-r9E">
-                                    <rect key="frame" x="1" y="507" width="238" height="16"/>
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.088235294117647065" horizontal="YES" id="vac-X5-zMu">
+                                    <rect key="frame" x="1" y="368" width="410" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="6pN-om-SEE">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="EeF-E7-0rX">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <tableHeaderView key="headerView" id="xKr-92-Jwq">
-                                    <rect key="frame" x="0.0" y="0.0" width="348" height="23"/>
+                                <tableHeaderView key="headerView" id="8Hy-Ls-UQE">
+                                    <rect key="frame" x="0.0" y="0.0" width="444" height="25"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l99-ZM-UOv" userLabel="2nd Row Horizontal Stack View">
-                                <rect key="frame" x="14" y="68" width="422" height="30"/>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g4B-5j-HYr" userLabel="Controls">
+                                <rect key="frame" x="10" y="77" width="402" height="139"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Sq-UD-lkn">
+                                        <rect key="frame" x="-6" y="111" width="414" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Clear Log" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iSa-wU-CKS" userLabel="Clear">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="ClearClicked:" target="XfG-lQ-9wD" id="oiG-vb-Nve"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l99-ZM-UOv" userLabel="Number of Attempts">
+                                <rect key="frame" x="0.0" y="39" width="422" height="30"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R5i-UL-GPm">
                                         <rect key="frame" x="48" y="6" width="168" height="17"/>
@@ -613,27 +646,20 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
-                            <stackView autoresizesSubviews="NO" distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEs-lU-3Jr" userLabel="3rd Row Horizontal Stack View">
-                                <rect key="frame" x="180" y="10" width="90" height="50"/>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fN7-d4-1em" userLabel="Query">
+                                <rect key="frame" x="10" y="10" width="402" height="21"/>
                                 <subviews>
-                                    <button identifier="Query" toolTip="Perform Query" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NYc-lm-JAN">
-                                        <rect key="frame" x="-6" y="8" width="102" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="90" id="yeZ-Rd-fby"/>
-                                        </constraints>
-                                        <buttonCell key="cell" type="push" title="Query" bezelStyle="rounded" image="buttonCell:xdt-C6-mFH:image" alignment="center" truncatesLastVisibleLine="YES" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xdt-C6-mFH">
+                                    <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ig-SF-Yk9">
+                                        <rect key="frame" x="-6" y="-7" width="414" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Perform Query" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="t5I-rk-EfP">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="QueryClicked:" target="XfG-lQ-9wD" id="QhZ-MO-CP6"/>
+                                            <action selector="QueryClicked:" target="XfG-lQ-9wD" id="5EU-mc-3iw"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="NYc-lm-JAN" firstAttribute="centerX" secondItem="cEs-lU-3Jr" secondAttribute="centerX" id="KNu-l7-gEu"/>
-                                    <constraint firstAttribute="height" constant="50" id="xHG-2n-B5P"/>
-                                </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                 </visibilityPriorities>
@@ -643,7 +669,11 @@
                             </stackView>
                         </subviews>
                         <edgeInsets key="edgeInsets" left="10" right="10" top="10" bottom="10"/>
+                        <constraints>
+                            <constraint firstItem="7Bk-bi-Fkn" firstAttribute="leading" secondItem="2BC-VW-IqM" secondAttribute="leading" constant="5" id="xLw-da-zOj"/>
+                        </constraints>
                         <visibilityPriorities>
+                            <integer value="1000"/>
                             <integer value="1000"/>
                             <integer value="1000"/>
                             <integer value="1000"/>
@@ -652,149 +682,19 @@
                             <real value="3.4028234663852886e+38"/>
                             <real value="3.4028234663852886e+38"/>
                             <real value="3.4028234663852886e+38"/>
+                            <real value="3.4028234663852886e+38"/>
                         </customSpacing>
                     </stackView>
                     <connections>
-                        <outlet property="LoggingTable" destination="c1Z-vf-jeK" id="HBN-4R-8ia"/>
+                        <outlet property="ClearButton" destination="iSa-wU-CKS" id="vqj-LL-Bmq"/>
+                        <outlet property="LoggingOutline" destination="M30-wn-vSp" id="Vjh-1A-OJc"/>
                         <outlet property="NumberOfAttempts" destination="ZI0-6L-59o" id="OVL-1g-vmD"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="3ut-zg-tct"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="-51" y="654.5"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="buttonCell:xdt-C6-mFH:image" width="1" height="1">
-            <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGVVZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEgcI
-ExQZHh8jJCsuMTtDR0tPUlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdz
-Vk5TUmVwc1dOU0NvbG9ygAKAERIgwwAAgAOAC1Z7MSwgMX3SFQoWGFpOUy5vYmplY3RzoReABIAK0hUK
-Gh2iGxyABYAGgAkQANIgCiEiXxAUTlNUSUZGUmVwcmVzZW50YXRpb26AB4AITxEIxE1NACoAAAAKAAAA
-EAEAAAMAAAABAAEAAAEBAAMAAAABAAEAAAECAAMAAAACAAgACAEDAAMAAAABAAEAAAEGAAMAAAABAAEA
-AAEKAAMAAAABAAEAAAERAAQAAAABAAAACAESAAMAAAABAAEAAAEVAAMAAAABAAIAAAEWAAMAAAABAAEA
-AAEXAAQAAAABAAAAAgEcAAMAAAABAAEAAAEoAAMAAAABAAIAAAFSAAMAAAABAAEAAAFTAAMAAAACAAEA
-AYdzAAcAAAf0AAAA0AAAAAAAAAf0YXBwbAIgAABtbnRyR1JBWVhZWiAH0AACAA4ADAAAAABhY3NwQVBQ
-TAAAAABub25lAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVkZXNjAAAAwAAAAG9kc2NtAAABMAAABmZjcHJ0AAAH
-mAAAADh3dHB0AAAH0AAAABRrVFJDAAAH5AAAAA5kZXNjAAAAAAAAABVHZW5lcmljIEdyYXkgUHJvZmls
-ZQAAAAAAAAAAAAAAFUdlbmVyaWMgR3JheSBQcm9maWxlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAbWx1YwAAAAAAAAAfAAAADHNrU0sAAAAqAAABhGVuVVMAAAAoAAAB
-rmNhRVMAAAAsAAAB1nZpVk4AAAAsAAACAnB0QlIAAAAqAAACLnVrVUEAAAAsAAACWGZyRlUAAAAqAAAC
-hGh1SFUAAAAuAAACrnpoVFcAAAAQAAAC3G5iTk8AAAAsAAAC7GtvS1IAAAAYAAADGGNzQ1oAAAAkAAAD
-MGhlSUwAAAAgAAADVHJvUk8AAAAkAAADdGRlREUAAAA6AAADmGl0SVQAAAAuAAAD0nN2U0UAAAAuAAAE
-AHpoQ04AAAAQAAAELmphSlAAAAAWAAAEPmVsR1IAAAAkAAAEVHB0UE8AAAA4AAAEeG5sTkwAAAAqAAAE
-sGVzRVMAAAAoAAAE2nRoVEgAAAAkAAAFAnRyVFIAAAAiAAAFJmZpRkkAAAAsAAAFSGhySFIAAAA6AAAF
-dHBsUEwAAAA2AAAFrnJ1UlUAAAAmAAAF5GFyRUcAAAAoAAAGCmRhREsAAAA0AAAGMgBWAWEAZQBvAGIA
-ZQBjAG4A/QAgAHMAaQB2AP0AIABwAHIAbwBmAGkAbABHAGUAbgBlAHIAaQBjACAARwByAGEAeQAgAFAA
-cgBvAGYAaQBsAGUAUABlAHIAZgBpAGwAIABkAGUAIABnAHIAaQBzACAAZwBlAG4A6AByAGkAYwBDHqUA
-dQAgAGgA7ABuAGgAIABNAOAAdQAgAHgA4QBtACAAQwBoAHUAbgBnAFAAZQByAGYAaQBsACAAQwBpAG4A
-egBhACAARwBlAG4A6QByAGkAYwBvBBcEMAQzBDAEOwRMBD0EOAQ5ACAEPwRABD4ERAQwBDkEOwAgAEcA
-cgBhAHkAUAByAG8AZgBpAGwAIABnAOkAbgDpAHIAaQBxAHUAZQAgAGcAcgBpAHMAwQBsAHQAYQBsAOEA
-bgBvAHMAIABzAHoA/AByAGsAZQAgAHAAcgBvAGYAaQBskBp1KHBwlo6Ccl9pY8+P8ABHAGUAbgBlAHIA
-aQBzAGsAIABnAHIA5QB0AG8AbgBlAHAAcgBvAGYAaQBsx3y8GAAgAEcAcgBhAHkAINUEuFzTDMd8AE8A
-YgBlAGMAbgD9ACABYQBlAGQA/QAgAHAAcgBvAGYAaQBsBeQF6AXVBeQF2QXcACAARwByAGEAeQAgBdsF
-3AXcBdkAUAByAG8AZgBpAGwAIABnAHIAaQAgAGcAZQBuAGUAcgBpAGMAQQBsAGwAZwBlAG0AZQBpAG4A
-ZQBzACAARwByAGEAdQBzAHQAdQBmAGUAbgAtAFAAcgBvAGYAaQBsAFAAcgBvAGYAaQBsAG8AIABnAHIA
-aQBnAGkAbwAgAGcAZQBuAGUAcgBpAGMAbwBHAGUAbgBlAHIAaQBzAGsAIABnAHIA5QBzAGsAYQBsAGUA
-cAByAG8AZgBpAGxmbpAacHBepmPPj/Blh072TgCCLDCwMOwwpDDXMO0w1TChMKQw6wOTA7UDvQO5A7oD
-zAAgA8ADwQO/A8YDrwO7ACADswO6A8EDuQBQAGUAcgBmAGkAbAAgAGcAZQBuAOkAcgBpAGMAbwAgAGQA
-ZQAgAGMAaQBuAHoAZQBuAHQAbwBzAEEAbABnAGUAbQBlAGUAbgAgAGcAcgBpAGoAcwBwAHIAbwBmAGkA
-ZQBsAFAAZQByAGYAaQBsACAAZwByAGkAcwAgAGcAZQBuAOkAcgBpAGMAbw5CDhsOIw5EDh8OJQ5MDioO
-NQ5ADhcOMg4XDjEOSA4nDkQOGwBHAGUAbgBlAGwAIABHAHIAaQAgAFAAcgBvAGYAaQBsAGkAWQBsAGUA
-aQBuAGUAbgAgAGgAYQByAG0AYQBhAHAAcgBvAGYAaQBpAGwAaQBHAGUAbgBlAHIAaQENAGsAaQAgAHAA
-cgBvAGYAaQBsACAAcwBpAHYAaQBoACAAdABvAG4AbwB2AGEAVQBuAGkAdwBlAHIAcwBhAGwAbgB5ACAA
-cAByAG8AZgBpAGwAIABzAHoAYQByAG8BWwBjAGkEHgQxBEkEOAQ5ACAEQQQ1BEAESwQ5ACAEPwRABD4E
-RAQ4BDsETAZFBkQGQQAgBioGOQYxBkoGQQAgAEcAcgBhAHkAIAYnBkQGOQYnBkUARwBlAG4AZQByAGUA
-bAAgAGcAcgDlAHQAbwBuAGUAYgBlAHMAawByAGkAdgBlAGwAcwBlAAB0ZXh0AAAAAENvcHlyaWdodCAy
-MDA3IEFwcGxlIEluYy4sIGFsbCByaWdodHMgcmVzZXJ2ZWQuAFhZWiAAAAAAAADzUQABAAAAARbMY3Vy
-dgAAAAAAAAABAc0AANIlJicoWiRjbGFzc25hbWVYJGNsYXNzZXNfEBBOU0JpdG1hcEltYWdlUmVwoycp
-KlpOU0ltYWdlUmVwWE5TT2JqZWN00iUmLC1XTlNBcnJheaIsKtIlJi8wXk5TTXV0YWJsZUFycmF5oy8s
-KtUyMzQ1CjY3ODk6V05TV2hpdGVcTlNDb21wb25lbnRzXE5TQ29sb3JTcGFjZV8QEk5TQ3VzdG9tQ29s
-b3JTcGFjZUQwIDAAQzAgMBADgAyAENQ8PT4KP0BBQlROU0lEVU5TSUNDV05TTW9kZWwQCYANEACAD9JE
-CkVGV05TLmRhdGFPERFoAAARaGFwcGwCAAAAbW50ckdSQVlYWVogB9wACAAXAA8ALgAPYWNzcEFQUEwA
-AAAAbm9uZQAAAAAAAAAAAAAAAAAAAAAAAPbWAAEAAAAA0y1hcHBsAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFZGVzYwAAAMAAAAB5ZHNjbQAAATwAAAfoY3BydAAACSQA
-AAAjd3RwdAAACUgAAAAUa1RSQwAACVwAAAgMZGVzYwAAAAAAAAAfR2VuZXJpYyBHcmF5IEdhbW1hIDIu
-MiBQcm9maWxlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG1sdWMAAAAAAAAAHwAAAAxza1NLAAAALgAAAYRk
-YURLAAAAOAAAAbJjYUVTAAAAOAAAAep2aVZOAAAAQAAAAiJwdEJSAAAASgAAAmJ1a1VBAAAALAAAAqxm
-ckZVAAAAPgAAAthodUhVAAAANAAAAxZ6aFRXAAAAHgAAA0puYk5PAAAAOgAAA2hjc0NaAAAAKAAAA6Jo
-ZUlMAAAAJAAAA8ppdElUAAAATgAAA+5yb1JPAAAAKgAABDxkZURFAAAATgAABGZrb0tSAAAAIgAABLRz
-dlNFAAAAOAAAAbJ6aENOAAAAHgAABNZqYUpQAAAAJgAABPRlbEdSAAAAKgAABRpwdFBPAAAAUgAABURu
-bE5MAAAAQAAABZZlc0VTAAAATAAABdZ0aFRIAAAAMgAABiJ0clRSAAAAJAAABlRmaUZJAAAARgAABnho
-ckhSAAAAPgAABr5wbFBMAAAASgAABvxydVJVAAAAOgAAB0ZlblVTAAAAPAAAB4BhckVHAAAALAAAB7wA
-VgFhAGUAbwBiAGUAYwBuAOEAIABzAGkAdgDhACAAZwBhAG0AYQAgADIALAAyAEcAZQBuAGUAcgBpAHMA
-awAgAGcAcgDlACAAMgAsADIAIABnAGEAbQBtAGEAcAByAG8AZgBpAGwARwBhAG0AbQBhACAAZABlACAA
-ZwByAGkAcwBvAHMAIABnAGUAbgDoAHIAaQBjAGEAIAAyAC4AMgBDHqUAdQAgAGgA7ABuAGgAIABNAOAA
-dQAgAHgA4QBtACAAQwBoAHUAbgBnACAARwBhAG0AbQBhACAAMgAuADIAUABlAHIAZgBpAGwAIABHAGUA
-bgDpAHIAaQBjAG8AIABkAGEAIABHAGEAbQBhACAAZABlACAAQwBpAG4AegBhAHMAIAAyACwAMgQXBDAE
-MwQwBDsETAQ9BDAAIABHAHIAYQB5AC0EMwQwBDwEMAAgADIALgAyAFAAcgBvAGYAaQBsACAAZwDpAG4A
-6QByAGkAcQB1AGUAIABnAHIAaQBzACAAZwBhAG0AbQBhACAAMgAsADIAwQBsAHQAYQBsAOEAbgBvAHMA
-IABzAHoA/AByAGsAZQAgAGcAYQBtAG0AYQAgADIALgAykBp1KHBwlo5RSV6mACAAMgAuADIAIIJyX2lj
-z4/wAEcAZQBuAGUAcgBpAHMAawAgAGcAcgDlACAAZwBhAG0AbQBhACAAMgAsADIALQBwAHIAbwBmAGkA
-bABPAGIAZQBjAG4A4QAgAWEAZQBkAOEAIABnAGEAbQBhACAAMgAuADIF0gXQBd4F1AAgBdAF5AXVBegA
-IAXbBdwF3AXZACAAMgAuADIAUAByAG8AZgBpAGwAbwAgAGcAcgBpAGcAaQBvACAAZwBlAG4AZQByAGkA
-YwBvACAAZABlAGwAbABhACAAZwBhAG0AbQBhACAAMgAsADIARwBhAG0AYQAgAGcAcgBpACAAZwBlAG4A
-ZQByAGkAYwEDACAAMgAsADIAQQBsAGwAZwBlAG0AZQBpAG4AZQBzACAARwByAGEAdQBzAHQAdQBmAGUA
-bgAtAFAAcgBvAGYAaQBsACAARwBhAG0AbQBhACAAMgAsADLHfLwYACDWjMDJACCsELnIACAAMgAuADIA
-INUEuFzTDMd8Zm6QGnBwXqZ8+2VwACAAMgAuADIAIGPPj/Blh072TgCCLDCwMOwwpDCsMPMw3gAgADIA
-LgAyACAw1zDtMNUwoTCkMOsDkwO1A70DuQO6A8wAIAOTA7oDwQO5ACADkwOsA7wDvAOxACAAMgAuADIA
-UABlAHIAZgBpAGwAIABnAGUAbgDpAHIAaQBjAG8AIABkAGUAIABjAGkAbgB6AGUAbgB0AG8AcwAgAGQA
-YQAgAEcAYQBtAG0AYQAgADIALAAyAEEAbABnAGUAbQBlAGUAbgAgAGcAcgBpAGoAcwAgAGcAYQBtAG0A
-YQAgADIALAAyAC0AcAByAG8AZgBpAGUAbABQAGUAcgBmAGkAbAAgAGcAZQBuAOkAcgBpAGMAbwAgAGQA
-ZQAgAGcAYQBtAG0AYQAgAGQAZQAgAGcAcgBpAHMAZQBzACAAMgAsADIOIw4xDgcOKg41DkEOAQ4hDiEO
-Mg5ADgEOIw4iDkwOFw4xDkgOJw5EDhsAIAAyAC4AMgBHAGUAbgBlAGwAIABHAHIAaQAgAEcAYQBtAGEA
-IAAyACwAMgBZAGwAZQBpAG4AZQBuACAAaABhAHIAbQBhAGEAbgAgAGcAYQBtAG0AYQAgADIALAAyACAA
-LQBwAHIAbwBmAGkAaQBsAGkARwBlAG4AZQByAGkBDQBrAGkAIABHAHIAYQB5ACAARwBhAG0AbQBhACAA
-MgAuADIAIABwAHIAbwBmAGkAbABVAG4AaQB3AGUAcgBzAGEAbABuAHkAIABwAHIAbwBmAGkAbAAgAHMA
-egBhAHIAbwFbAGMAaQAgAGcAYQBtAG0AYQAgADIALAAyBB4EMQRJBDAETwAgBEEENQRABDAETwAgBDME
-MAQ8BDwEMAAgADIALAAyAC0EPwRABD4ERAQ4BDsETABHAGUAbgBlAHIAaQBjACAARwByAGEAeQAgAEcA
-YQBtAG0AYQAgADIALgAyACAAUAByAG8AZgBpAGwAZQY6BicGRQYnACAAMgAuADIAIAZEBkgGRgAgBjEG
-RQYnBi8GSgAgBjkGJwZFdGV4dAAAAABDb3B5cmlnaHQgQXBwbGUgSW5jLiwgMjAxMgAAWFlaIAAAAAAA
-APNRAAEAAAABFsxjdXJ2AAAAAAAABAAAAAAFAAoADwAUABkAHgAjACgALQAyADcAOwBAAEUASgBPAFQA
-WQBeAGMAaABtAHIAdwB8AIEAhgCLAJAAlQCaAJ8ApACpAK4AsgC3ALwAwQDGAMsA0ADVANsA4ADlAOsA
-8AD2APsBAQEHAQ0BEwEZAR8BJQErATIBOAE+AUUBTAFSAVkBYAFnAW4BdQF8AYMBiwGSAZoBoQGpAbEB
-uQHBAckB0QHZAeEB6QHyAfoCAwIMAhQCHQImAi8COAJBAksCVAJdAmcCcQJ6AoQCjgKYAqICrAK2AsEC
-ywLVAuAC6wL1AwADCwMWAyEDLQM4A0MDTwNaA2YDcgN+A4oDlgOiA64DugPHA9MD4APsA/kEBgQTBCAE
-LQQ7BEgEVQRjBHEEfgSMBJoEqAS2BMQE0wThBPAE/gUNBRwFKwU6BUkFWAVnBXcFhgWWBaYFtQXFBdUF
-5QX2BgYGFgYnBjcGSAZZBmoGewaMBp0GrwbABtEG4wb1BwcHGQcrBz0HTwdhB3QHhgeZB6wHvwfSB+UH
-+AgLCB8IMghGCFoIbgiCCJYIqgi+CNII5wj7CRAJJQk6CU8JZAl5CY8JpAm6Cc8J5Qn7ChEKJwo9ClQK
-agqBCpgKrgrFCtwK8wsLCyILOQtRC2kLgAuYC7ALyAvhC/kMEgwqDEMMXAx1DI4MpwzADNkM8w0NDSYN
-QA1aDXQNjg2pDcMN3g34DhMOLg5JDmQOfw6bDrYO0g7uDwkPJQ9BD14Peg+WD7MPzw/sEAkQJhBDEGEQ
-fhCbELkQ1xD1ERMRMRFPEW0RjBGqEckR6BIHEiYSRRJkEoQSoxLDEuMTAxMjE0MTYxODE6QTxRPlFAYU
-JxRJFGoUixStFM4U8BUSFTQVVhV4FZsVvRXgFgMWJhZJFmwWjxayFtYW+hcdF0EXZReJF64X0hf3GBsY
-QBhlGIoYrxjVGPoZIBlFGWsZkRm3Gd0aBBoqGlEadxqeGsUa7BsUGzsbYxuKG7Ib2hwCHCocUhx7HKMc
-zBz1HR4dRx1wHZkdwx3sHhYeQB5qHpQevh7pHxMfPh9pH5Qfvx/qIBUgQSBsIJggxCDwIRwhSCF1IaEh
-ziH7IiciVSKCIq8i3SMKIzgjZiOUI8Ij8CQfJE0kfCSrJNolCSU4JWgllyXHJfcmJyZXJocmtyboJxgn
-SSd6J6sn3CgNKD8ocSiiKNQpBik4KWspnSnQKgIqNSpoKpsqzysCKzYraSudK9EsBSw5LG4soizXLQwt
-QS12Last4S4WLkwugi63Lu4vJC9aL5Evxy/+MDUwbDCkMNsxEjFKMYIxujHyMioyYzKbMtQzDTNGM38z
-uDPxNCs0ZTSeNNg1EzVNNYc1wjX9Njc2cjauNuk3JDdgN5w31zgUOFA4jDjIOQU5Qjl/Obw5+To2OnQ6
-sjrvOy07azuqO+g8JzxlPKQ84z0iPWE9oT3gPiA+YD6gPuA/IT9hP6I/4kAjQGRApkDnQSlBakGsQe5C
-MEJyQrVC90M6Q31DwEQDREdEikTORRJFVUWaRd5GIkZnRqtG8Ec1R3tHwEgFSEtIkUjXSR1JY0mpSfBK
-N0p9SsRLDEtTS5pL4kwqTHJMuk0CTUpNk03cTiVObk63TwBPSU+TT91QJ1BxULtRBlFQUZtR5lIxUnxS
-x1MTU19TqlP2VEJUj1TbVShVdVXCVg9WXFapVvdXRFeSV+BYL1h9WMtZGllpWbhaB1pWWqZa9VtFW5Vb
-5Vw1XIZc1l0nXXhdyV4aXmxevV8PX2Ffs2AFYFdgqmD8YU9homH1YklinGLwY0Njl2PrZEBklGTpZT1l
-kmXnZj1mkmboZz1nk2fpaD9olmjsaUNpmmnxakhqn2r3a09rp2v/bFdsr20IbWBtuW4SbmtuxG8eb3hv
-0XArcIZw4HE6cZVx8HJLcqZzAXNdc7h0FHRwdMx1KHWFdeF2Pnabdvh3VnezeBF4bnjMeSp5iXnnekZ6
-pXsEe2N7wnwhfIF84X1BfaF+AX5ifsJ/I3+Ef+WAR4CogQqBa4HNgjCCkoL0g1eDuoQdhICE44VHhauG
-DoZyhteHO4efiASIaYjOiTOJmYn+imSKyoswi5aL/IxjjMqNMY2Yjf+OZo7OjzaPnpAGkG6Q1pE/kaiS
-EZJ6kuOTTZO2lCCUipT0lV+VyZY0lp+XCpd1l+CYTJi4mSSZkJn8mmia1ZtCm6+cHJyJnPedZJ3SnkCe
-rp8dn4uf+qBpoNihR6G2oiailqMGo3aj5qRWpMelOKWpphqmi6b9p26n4KhSqMSpN6mpqhyqj6sCq3Wr
-6axcrNCtRK24ri2uoa8Wr4uwALB1sOqxYLHWskuywrM4s660JbSctRO1irYBtnm28Ldot+C4WbjRuUq5
-wro7urW7LrunvCG8m70VvY++Cr6Evv+/er/1wHDA7MFnwePCX8Lbw1jD1MRRxM7FS8XIxkbGw8dBx7/I
-Pci8yTrJuco4yrfLNsu2zDXMtc01zbXONs62zzfPuNA50LrRPNG+0j/SwdNE08bUSdTL1U7V0dZV1tjX
-XNfg2GTY6Nls2fHadtr724DcBdyK3RDdlt4c3qLfKd+v4DbgveFE4cziU+Lb42Pj6+Rz5PzlhOYN5pbn
-H+ep6DLovOlG6dDqW+rl63Dr++yG7RHtnO4o7rTvQO/M8Fjw5fFy8f/yjPMZ86f0NPTC9VD13vZt9vv3
-ivgZ+Kj5OPnH+lf65/t3/Af8mP0p/br+S/7c/23//4AO0iUmSEldTlNNdXRhYmxlRGF0YaNISipWTlNE
-YXRh0iUmTE1cTlNDb2xvclNwYWNlok4qXE5TQ29sb3JTcGFjZdIlJlBRV05TQ29sb3KiUCrSJSZTVFdO
-U0ltYWdlolMqXxAPTlNLZXllZEFyY2hpdmVy0VdYVHJvb3SAAQAIABEAGgAjAC0AMgA3AEwAUgBdAGQA
-awB4AH8AhwCJAIsAkACSAJQAmwCgAKsArQCvALEAtgC5ALsAvQC/AMEAxgDdAN8A4QmpCa4JuQnCCdUJ
-2QnkCe0J8gn6Cf0KAgoRChUKIAooCjUKQgpXClwKYApiCmQKZgpvCnQKegqCCoQKhgqICooKjwqXHAMc
-BRwKHBgcHBwjHCgcNRw4HEUcShxSHFUcWhxiHGUcdxx6HH8AAAAAAAACAQAAAAAAAABZAAAAAAAAAAAA
-AAAAAAAcgQ
-</mutableData>
-        </image>
-    </resources>
 </document>

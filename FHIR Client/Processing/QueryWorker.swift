@@ -21,7 +21,7 @@ class QueryWorker: Thread {
     endPoint = ""
     self.completionDelegate = completionDelegate
 
-    print("Create worker")
+    print("Create worker: \(identifier)")
     queryRequest  = QueryRequest.init(semaphore: querySemaphore)
     print("Created request")
     
@@ -37,7 +37,6 @@ class QueryWorker: Thread {
       print("Waiting")
       querySemaphore.wait()
       print("Done waiting")
-      Thread.sleep(forTimeInterval: 1.0)
       completionDelegate?.responseReceived(worker: self, response: queryRequest.Response as! HTTPURLResponse, data: queryRequest.ResponseString)
       
       resumeWork.wait()
