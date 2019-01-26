@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0741E53F21C5ED82000AFA29 /* FHIRWorkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0741E53E21C5ED82000AFA29 /* FHIRWorkCoordinator.swift */; };
-		0741E54121C6ADCA000AFA29 /* FHIRWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0741E54021C6ADCA000AFA29 /* FHIRWorker.swift */; };
 		0741E54321C85B10000AFA29 /* CompletionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0741E54221C85B10000AFA29 /* CompletionDelegate.swift */; };
 		07B9C0BF21E2519F0055054F /* TimeThreadCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B9C0BE21E2519F0055054F /* TimeThreadCellView.swift */; };
 		07F3AA7921ACE91600672515 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F3AA7821ACE91600672515 /* AppDelegate.swift */; };
@@ -21,8 +19,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0741E53E21C5ED82000AFA29 /* FHIRWorkCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FHIRWorkCoordinator.swift; sourceTree = "<group>"; };
-		0741E54021C6ADCA000AFA29 /* FHIRWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FHIRWorker.swift; sourceTree = "<group>"; };
 		0741E54221C85B10000AFA29 /* CompletionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionDelegate.swift; sourceTree = "<group>"; };
 		07B9C0BE21E2519F0055054F /* TimeThreadCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeThreadCellView.swift; sourceTree = "<group>"; };
 		07F3AA7521ACE91600672515 /* FHIR Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FHIR Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,8 +91,6 @@
 				07F3AA8A21ADB91100672515 /* QueryRequest.swift */,
 				07F3AA8C21AF2C3F00672515 /* QueryWorker.swift */,
 				07F3AA8E21C015C500672515 /* WorkCoordinator.swift */,
-				0741E53E21C5ED82000AFA29 /* FHIRWorkCoordinator.swift */,
-				0741E54021C6ADCA000AFA29 /* FHIRWorker.swift */,
 				0741E54221C85B10000AFA29 /* CompletionDelegate.swift */,
 			);
 			path = Processing;
@@ -178,8 +172,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0741E54321C85B10000AFA29 /* CompletionDelegate.swift in Sources */,
-				0741E53F21C5ED82000AFA29 /* FHIRWorkCoordinator.swift in Sources */,
-				0741E54121C6ADCA000AFA29 /* FHIRWorker.swift in Sources */,
 				07F3AA8F21C015C500672515 /* WorkCoordinator.swift in Sources */,
 				07F3AA8D21AF2C3F00672515 /* QueryWorker.swift in Sources */,
 				07F3AA8B21ADB91100672515 /* QueryRequest.swift in Sources */,
