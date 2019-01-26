@@ -13,10 +13,13 @@ class WorkCoordinator: NSObject, CompletionDelegate {
   private let workersLock = NSLock.init()
   private var continueWorking = true
   private weak var completionDelegate : CompletionDelegate?
+  private let dateFormatter: DateFormatter
   
   init(completionDelegate: CompletionDelegate) {
     self.completionDelegate = completionDelegate
-    
+    self.dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
     super.init()
   }
   
@@ -24,7 +27,9 @@ class WorkCoordinator: NSObject, CompletionDelegate {
     var worker : QueryWorker? = nil
     
     print("Ready to start and make request")
+    workersLock.lock()
     worker = findWorker()
+    print("Found worker: \(worker!.name!) and putting them to use at: \(dateFormatter.string(from: Date.init()))")
     worker!.endPoint = endPoint
     
     if (worker!.isExecuting) {
@@ -41,7 +46,6 @@ class WorkCoordinator: NSObject, CompletionDelegate {
   private func findWorker() -> QueryWorker? {
     var queryWorker : QueryWorker? = nil
     
-    workersLock.lock()
     for worker in workers {
       if (!worker.isClaimed()) {
         worker.claim()
@@ -51,12 +55,12 @@ class WorkCoordinator: NSObject, CompletionDelegate {
     }
     
     guard queryWorker != nil else {
-      queryWorker = QueryWorker.init(identifier: "Query Thread #\(workers.count)", completionDelegate: self)
-      workers.append(queryWorker!)
-      workersLock.unlock()
+      let worker = QueryWorker.init(identifier: "Query Thread #\(workers.count)", completionDelegate: self)
+      workers.append(worker)
+      worker.claim()
+      queryWorker = worker
       return queryWorker
     }
-    workersLock.unlock()
     
     return queryWorker
   }
