@@ -9,25 +9,34 @@
 import Cocoa
 
 class ViewController: NSViewController, CompletionDelegate {
-  var workCoordinator : WorkCoordinator?
   @IBOutlet weak var NumberOfAttempts : NSTextField!
-  @IBOutlet weak var LoggingTable: NSTableView!
   @IBOutlet weak var LoggingOutline: NSOutlineView!
-  fileprivate var logEntries = [LogEntryInformation]()
-  
+  @IBOutlet weak var OperationPopup: NSPopUpButtonCell!
   @IBOutlet weak var ClearButton: NSButtonCell!
+
+  private var logEntries = [LogEntryInformation]()
+  private var workCoordinator: WorkCoordinator?
+  private var baseUrl = "http://localhost:4343/FHIRServer"
+  
+  private let operations = [
+    "capabilities": "Capabilities Statement",
+    "allergies": "Allergies"
+  ]
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     workCoordinator = WorkCoordinator.init(completionDelegate: self)
     NumberOfAttempts.integerValue = 1
 
-//    self.LoggingTable.delegate = self
-//    self.LoggingTable.dataSource = self
-    
     self.LoggingOutline.delegate = self
     self.LoggingOutline.dataSource = self
     
     self.LoggingOutline.reloadData()
+    
+    self.OperationPopup.removeAllItems()
+    for description in operations.values.sorted() {
+      self.OperationPopup.addItem(withTitle: description)
+    }
     
     ClearButton.isEnabled = false
   }
@@ -41,8 +50,22 @@ class ViewController: NSViewController, CompletionDelegate {
   @IBAction func QueryClicked(_ sender: Any) {
     let numberOfAttempts = NumberOfAttempts.integerValue
     print("Requested Attempts: \(numberOfAttempts)")
+    print("Operation: \(self.OperationPopup.selectedItem?.title ?? "Unknown")")
+    let index = self.OperationPopup.indexOfSelectedItem
+    var selectedKey = ""
+    var i = 0
+    for (key, _) in operations.sorted(by: { $0.value < $1.value }) {
+      if (i == index) {
+        selectedKey = key
+        break
+      }
+      else {
+        i+=1
+      }
+    }
+    
     for _ in 1...numberOfAttempts {
-      doTheWork()
+      doTheWork(operation: selectedKey)
     }
   }
   
@@ -52,18 +75,56 @@ class ViewController: NSViewController, CompletionDelegate {
     ClearButton.isEnabled = false
   }
   
-  func doTheWork() {
-    workCoordinator!.doWork(endPoint: "http://localhost:4343/FHIRServer/Patient/3341/Allergy?_include=AllergyIntolerance:patient")
+  @IBAction func ServerInfoClicked(_ sender: Any) {
+
+    // 1
+    let storyboard = NSStoryboard(name: "Main", bundle: nil)
+    let serverInfoWindowController = storyboard.instantiateController(withIdentifier: "ServerInfoWindowController") as! NSWindowController
+    
+    if let serverInfoWindow = serverInfoWindowController.window {
+      
+      // 2
+      let serverInfoViewController = serverInfoWindow.contentViewController as! ServerInfoViewController
+      serverInfoViewController.serverBaseUrl = baseUrl
+      
+      // 3
+      let application = NSApplication.shared
+      application.runModal(for: serverInfoWindow)
+      
+      baseUrl = serverInfoViewController.serverBaseUrl
+      
+      // 4
+      serverInfoWindow.close()
+    }
+
   }
   
-  func responseReceived(worker: QueryWorker, response: HTTPURLResponse, data: String) {
+  func doTheWork(operation: String) {
+    print("Operation key: \(operation)")
+    var endPoint = ""
+    
+    switch operation {
+    case "capabilities":
+      endPoint = "\(baseUrl)/metadata"
+      break
+    case "allergies":
+      endPoint = "\(baseUrl)/Patient/3341/Allergy?_include=AllergyIntolerance:patient"
+      break
+    default:
+      break;
+    }
+    
+    workCoordinator!.doWork(endPoint: endPoint)
+  }
+  
+  func responseReceived(worker: QueryWorker, duration: Double, response: HTTPURLResponse, data: String) {
     DispatchQueue.main.async {
-      self.respondToResponse(time: Date.init(), worker: worker, response: response, data: data)
+      self.respondToResponse(time: Date.init(), duration: duration, worker: worker, response: response, data: data)
     }
     print("Received Callback on worker thread: \(Thread.current.name ?? "unknown")")
   }
   
-  func respondToResponse(time: Date, worker: QueryWorker, response: HTTPURLResponse, data: String) {
+  func respondToResponse(time: Date, duration: Double, worker: QueryWorker, response: HTTPURLResponse, data: String) {
     print("url: " + response.url!.absoluteString)
     print("mime type: " + response.mimeType!)
     print("status code: \(response.statusCode)")
@@ -71,7 +132,7 @@ class ViewController: NSViewController, CompletionDelegate {
 
     print("Received Callback on main thread: \(Thread.current.isMainThread)")
     
-    let logEntry = LogEntryInformation.init(time: time, thread: worker.name ?? "Unknown", statusCode: response.statusCode, data: data)
+    let logEntry = LogEntryInformation.init(time: time, duration: duration, thread: worker.name ?? "Unknown", statusCode: response.statusCode, data: data)
 
     logEntries.append(logEntry)
     ClearButton.isEnabled = true
@@ -197,12 +258,14 @@ extension ViewController: NSOutlineViewDelegate {
 
 fileprivate class LogEntryInformation: NSObject {
   var Time: Date
+  var Duration: Double
   var Thread: String
   var StatusCode: Int
   var Data: String
   
-  init(time: Date, thread: String, statusCode: Int, data: String) {
+  init(time: Date, duration: Double, thread: String, statusCode: Int, data: String) {
     self.Time = time
+    self.Duration = duration
     self.Thread = thread
     self.StatusCode = statusCode
     self.Data = data

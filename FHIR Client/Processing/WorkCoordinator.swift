@@ -65,10 +65,10 @@ class WorkCoordinator: NSObject, CompletionDelegate {
     return queryWorker
   }
   
-  func responseReceived(worker: QueryWorker, response: HTTPURLResponse, data: String) {
+  func responseReceived(worker: QueryWorker, duration: Double, response: HTTPURLResponse, data: String) {
     worker.unclaim()
     print("Received Callback in Work Coordinator")
-    completionDelegate!.responseReceived(worker: worker, response: response, data: data)
+    completionDelegate!.responseReceived(worker: worker, duration: duration, response: response, data: data)
   }
   
 }

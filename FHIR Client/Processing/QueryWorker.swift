@@ -13,7 +13,7 @@ class QueryWorker: Thread {
   private let querySemaphore = DispatchSemaphore(value: 0)
   public var continueWork = true
   public let resumeWork = NSCondition.init()
-  public var endPoint : String
+  public var endPoint: String
   private var Claimed = false
   private weak var completionDelegate : CompletionDelegate?
   
@@ -33,11 +33,15 @@ class QueryWorker: Thread {
     
     while (continueWork) {
       print("Ready to start and make request")
-      queryRequest.MakeRequest(endPoint: "http://localhost:4343/FHIRServer/Patient/3341/Allergy?_include=AllergyIntolerance:patient")
+      let startTime = Date.init()
+      queryRequest.MakeRequest(endPoint: self.endPoint)
       print("Waiting")
       querySemaphore.wait()
+      let stopTime = Date.init()
       print("Done waiting")
-      completionDelegate?.responseReceived(worker: self, response: queryRequest.Response as! HTTPURLResponse, data: queryRequest.ResponseString)
+      let duration = stopTime.timeIntervalSince(startTime)
+      print("Duration: \(duration.magnitude)")
+      completionDelegate?.responseReceived(worker: self, duration: duration, response: queryRequest.Response as! HTTPURLResponse, data: queryRequest.ResponseString)
       
       resumeWork.wait()
     }
@@ -55,6 +59,5 @@ class QueryWorker: Thread {
   func unclaim() {
     Claimed = false
   }
-  
   
 }

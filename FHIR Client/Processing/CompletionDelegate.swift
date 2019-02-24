@@ -9,5 +9,5 @@
 import Cocoa
 
 protocol CompletionDelegate: class {
-  func responseReceived(worker : QueryWorker, response: HTTPURLResponse, data: String)
+  func responseReceived(worker: QueryWorker, duration: Double, response: HTTPURLResponse, data: String)
 }

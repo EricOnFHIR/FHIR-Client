@@ -37,7 +37,7 @@ class QueryRequest: NSObject, URLSessionDataDelegate {
     }
 
     print("Setting up the URL request")
-    let urlString = "http://localhost:4343/FHIRServer/Patient/3341/Allergy?_include=AllergyIntolerance:patient"
+    let urlString = endPoint
     let url = URL(string: urlString)
     var request = URLRequest(url: url!);
     request.httpMethod = "GET"

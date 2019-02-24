@@ -12,6 +12,7 @@ class TimeThreadCellView: NSTableCellView {
 
   @IBOutlet weak var ThreadLabel: NSTextField!
   @IBOutlet weak var TimeLabel: NSTextField!
+  @IBOutlet weak var DurationLabel: NSTextField!
   override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
