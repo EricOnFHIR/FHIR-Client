@@ -448,7 +448,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="422" height="619"/>
                         <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                         <subviews>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="102" horizontalPageScroll="10" verticalLineScroll="102" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Bk-bi-Fkn" userLabel="Logging Outline View">
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="108" horizontalPageScroll="10" verticalLineScroll="108" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Bk-bi-Fkn" userLabel="Logging Outline View">
                                 <rect key="frame" x="5" y="224" width="412" height="385"/>
                                 <clipView key="contentView" id="2cc-cW-jqy">
                                     <rect key="frame" x="1" y="0.0" width="410" height="384"/>
@@ -457,7 +457,7 @@
                                         <outlineView identifier="LoggingOutline" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="100" rowSizeStyle="automatic" headerView="8Hy-Ls-UQE" viewBased="YES" indentationPerLevel="2" outlineTableColumn="KfF-Vx-0hA" id="M30-wn-vSp">
                                             <rect key="frame" x="0.0" y="0.0" width="444" height="359"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <size key="intercellSpacing" width="3" height="2"/>
+                                            <size key="intercellSpacing" width="3" height="8"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
@@ -475,11 +475,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="TimeThreadOutlineCell" id="Flq-4E-qAO" customClass="TimeThreadCellView" customModule="FHIR_Client" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="1" width="150" height="60"/>
+                                                            <rect key="frame" x="1" y="4" width="150" height="39"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f4R-my-4sh" userLabel="Time">
-                                                                    <rect key="frame" x="3" y="46" width="50" height="11"/>
+                                                                    <rect key="frame" x="3" y="26" width="50" height="11"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" title="TimeLabel" id="BQ7-38-Iau" userLabel="TimeLabel">
                                                                         <font key="font" metaFont="miniSystem"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -487,7 +487,7 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Tli-7K-vRW" userLabel="Thread">
-                                                                    <rect key="frame" x="3" y="33" width="59" height="11"/>
+                                                                    <rect key="frame" x="3" y="13" width="59" height="11"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" title="ThreadLabel" id="zAJ-2h-pJG" userLabel="ThreadLabel">
                                                                         <font key="font" metaFont="miniSystem"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -495,7 +495,7 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aZ6-f8-mP4" userLabel="Duration">
-                                                                    <rect key="frame" x="3" y="20" width="66" height="11"/>
+                                                                    <rect key="frame" x="3" y="0.0" width="66" height="11"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" title="DurationLabel" id="6ip-fM-Ag1">
                                                                         <font key="font" metaFont="miniSystem"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -504,14 +504,15 @@
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Tli-7K-vRW" secondAttribute="trailing" constant="20" symbolic="YES" id="5DW-U9-Paq"/>
-                                                                <constraint firstItem="aZ6-f8-mP4" firstAttribute="leading" secondItem="Tli-7K-vRW" secondAttribute="leading" id="F6o-hl-vdZ"/>
-                                                                <constraint firstItem="Tli-7K-vRW" firstAttribute="top" secondItem="f4R-my-4sh" secondAttribute="bottom" constant="2" id="KcF-tc-ho2"/>
-                                                                <constraint firstItem="f4R-my-4sh" firstAttribute="leading" secondItem="Flq-4E-qAO" secondAttribute="leading" constant="5" id="Lu5-d4-uZL"/>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="f4R-my-4sh" secondAttribute="trailing" constant="20" symbolic="YES" id="RA4-uJ-SZ3"/>
-                                                                <constraint firstItem="f4R-my-4sh" firstAttribute="top" secondItem="Flq-4E-qAO" secondAttribute="top" constant="3" id="WHC-UN-Vsx"/>
-                                                                <constraint firstItem="Tli-7K-vRW" firstAttribute="leading" secondItem="Flq-4E-qAO" secondAttribute="leading" constant="5" id="hfk-Yj-Auk"/>
-                                                                <constraint firstItem="aZ6-f8-mP4" firstAttribute="top" secondItem="Tli-7K-vRW" secondAttribute="bottom" constant="2" id="sS8-2v-alO"/>
+                                                                <constraint firstItem="f4R-my-4sh" firstAttribute="top" secondItem="Flq-4E-qAO" secondAttribute="top" constant="2" id="40f-ei-0f9"/>
+                                                                <constraint firstItem="aZ6-f8-mP4" firstAttribute="top" secondItem="Tli-7K-vRW" secondAttribute="bottom" constant="2" id="EjY-co-Vwn"/>
+                                                                <constraint firstItem="Tli-7K-vRW" firstAttribute="leading" secondItem="f4R-my-4sh" secondAttribute="leading" id="Nag-5X-Miw"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Tli-7K-vRW" secondAttribute="trailing" constant="20" symbolic="YES" id="QOp-Oq-UqE"/>
+                                                                <constraint firstItem="Tli-7K-vRW" firstAttribute="top" secondItem="f4R-my-4sh" secondAttribute="bottom" constant="2" id="Rbt-Gg-hDi"/>
+                                                                <constraint firstItem="Tli-7K-vRW" firstAttribute="leading" secondItem="Flq-4E-qAO" secondAttribute="leading" constant="5" id="bit-4a-rjM"/>
+                                                                <constraint firstItem="Tli-7K-vRW" firstAttribute="leading" secondItem="aZ6-f8-mP4" secondAttribute="leading" id="iQg-FZ-TQG"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aZ6-f8-mP4" secondAttribute="trailing" constant="20" symbolic="YES" id="t3C-75-L6t"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="f4R-my-4sh" secondAttribute="trailing" constant="20" symbolic="YES" id="uXq-9J-Zvi"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="DurationLabel" destination="aZ6-f8-mP4" id="DOS-xk-udK"/>
@@ -520,7 +521,7 @@
                                                             </connections>
                                                         </tableCellView>
                                                         <tableCellView identifier="MessageItemOutlineCell" id="2bq-Kq-pkJ" userLabel="Item Cell View">
-                                                            <rect key="frame" x="1" y="43" width="150" height="100"/>
+                                                            <rect key="frame" x="1" y="51" width="150" height="100"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="r8n-b5-nl3">
@@ -557,7 +558,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="MessageOutlineCell" id="qbV-50-uOI" userLabel="Response Cell View">
-                                                            <rect key="frame" x="154" y="1" width="288" height="17"/>
+                                                            <rect key="frame" x="154" y="4" width="288" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="GZH-uC-gNL" userLabel="Response">

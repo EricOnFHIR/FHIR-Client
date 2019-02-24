@@ -181,6 +181,8 @@ extension ViewController: NSOutlineViewDelegate {
         if let timeThreadCell = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TimeThreadOutlineCell"), owner: nil) as? TimeThreadCellView {
           timeThreadCell.ThreadLabel.stringValue = logEntry.Thread
           timeThreadCell.TimeLabel.stringValue = logEntry.getTime()
+          let duration:String = String(format:"%.1fms", logEntry.Duration * 1000.0)
+          timeThreadCell.DurationLabel.stringValue = duration
           cell = timeThreadCell
         }
         else {
@@ -222,12 +224,16 @@ extension ViewController: NSOutlineViewDelegate {
     return cell
   }
   
+  func outlineView(_ outlineView: NSOutlineView, didAdd rowView: NSTableRowView, forRow row: Int) {
+    outlineView.scrollRowToVisible(row)
+  }
+  
   func outlineView(_ outlineView: NSOutlineView, heightOfRowByItem item: Any) -> CGFloat {
     var height: CGFloat
 
     height = 5.0
     if item is LogEntryInformation {
-      height = 30.0
+      height = 39.0
     }
     else if let messageItem = item as? String {
 
