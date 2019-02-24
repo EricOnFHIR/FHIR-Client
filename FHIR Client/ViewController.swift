@@ -181,7 +181,7 @@ extension ViewController: NSOutlineViewDelegate {
         if let timeThreadCell = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TimeThreadOutlineCell"), owner: nil) as? TimeThreadCellView {
           timeThreadCell.ThreadLabel.stringValue = logEntry.Thread
           timeThreadCell.TimeLabel.stringValue = logEntry.getTime()
-          let duration:String = String(format:"%.1fms", logEntry.Duration * 1000.0)
+          let duration:String = String(format:"Response in: %.1fms", logEntry.Duration * 1000.0)
           timeThreadCell.DurationLabel.stringValue = duration
           cell = timeThreadCell
         }
